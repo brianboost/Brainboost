@@ -7,33 +7,26 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: Arial;
       margin: 0;
       background: linear-gradient(to right, #1e3c72, #2a5298);
-      color: #fff;
+      color: white;
     }
 
     header {
       text-align: center;
       padding: 40px;
       background: rgba(0,0,0,0.5);
-      animation: fadeIn 2s ease-in-out;
     }
 
     header h1 {
       font-size: 45px;
-      margin: 0;
       animation: glow 2s infinite alternate;
     }
 
     @keyframes glow {
-      from { text-shadow: 0 0 10px #fff, 0 0 20px #00c6ff; }
-      to { text-shadow: 0 0 20px #fff, 0 0 40px #00c6ff; }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { text-shadow: 0 0 10px white; }
+      to { text-shadow: 0 0 25px cyan; }
     }
 
     .container {
@@ -44,75 +37,41 @@
     }
 
     .card {
-      background: #fff;
-      color: #000;
+      background: white;
+      color: black;
       border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
       overflow: hidden;
-      transform: translateY(30px);
-      opacity: 0;
-      animation: slideUp 1s forwards;
-    }
-
-    .card:nth-child(1) { animation-delay: 0.2s; }
-    .card:nth-child(2) { animation-delay: 0.4s; }
-    .card:nth-child(3) { animation-delay: 0.6s; }
-    .card:nth-child(4) { animation-delay: 0.8s; }
-    .card:nth-child(5) { animation-delay: 1s; }
-    .card:nth-child(6) { animation-delay: 1.2s; }
-
-    @keyframes slideUp {
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      transition: 0.4s;
     }
 
     .card:hover {
-      transform: scale(1.08) rotate(1deg);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 20px #00c6ff;
+      transform: scale(1.08);
+      box-shadow: 0 0 20px cyan;
     }
 
     .card img {
       width: 100%;
       height: 150px;
       object-fit: cover;
-      transition: transform 0.5s;
-    }
-
-    .card:hover img {
-      transform: scale(1.1);
     }
 
     .card h2 {
-      padding: 12px;
-      margin: 0;
       background: #2a5298;
-      color: #fff;
+      color: white;
+      margin: 0;
+      padding: 10px;
     }
 
     .card p {
-      padding: 12px;
+      padding: 10px;
     }
 
     footer {
       text-align: center;
       padding: 20px;
       background: rgba(0,0,0,0.6);
-      margin-top: 20px;
     }
-
-    nav a {
-      color: white;
-      margin: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
   </style>
 </head>
 
@@ -121,56 +80,50 @@
 <header>
   <h1>BrainBoost 💻</h1>
   <p>Learn the Parts of a Computer</p>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="quiz.html">Quiz</a>
-  </nav>
 </header>
 
 <div class="container">
 
   <div class="card">
-    <img src="cpu.jpg" alt="CPU">
-    <h2>CPU (Central Processing Unit)</h2>
-    <p>The CPU is the brain of the computer. It performs calculations and executes instructions.</p>
+    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7">
+    <h2>CPU</h2>
+    <p>The brain of the computer that processes instructions.</p>
   </div>
 
   <div class="card">
-    <img src="monitor.jpg" alt="Monitor">
+    <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3">
     <h2>Monitor</h2>
-    <p>The monitor displays visual output like text, images, and videos.</p>
+    <p>Displays output like text, images, and videos.</p>
   </div>
 
   <div class="card">
-    <img src="keyboard.jpg" alt="Keyboard">
+    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8">
     <h2>Keyboard</h2>
-    <p>The keyboard is used to input data by typing.</p>
+    <p>Used to type and input data.</p>
   </div>
 
   <div class="card">
-    <img src="mouse.jpg" alt="Mouse">
+    <img src="https://images.unsplash.com/photo-1585076641399-5c06d1b3365f">
     <h2>Mouse</h2>
-    <p>The mouse helps you point, click, and interact with the screen.</p>
+    <p>Helps to click, select, and move items.</p>
   </div>
 
   <div class="card">
-    <img src="ram.jpg" alt="RAM">
-    <h2>RAM (Memory)</h2>
-    <p>RAM stores temporary data and improves speed.</p>
+    <img src="https://images.unsplash.com/photo-1563201515-adbe35c669c5">
+    <h2>RAM</h2>
+    <p>Temporary memory that speeds up the computer.</p>
   </div>
 
   <div class="card">
-    <img src="harddisk.jpg" alt="Hard Disk">
+    <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c">
     <h2>Hard Disk</h2>
-    <p>The hard disk stores data permanently.</p>
+    <p>Stores all data permanently.</p>
   </div>
 
 </div>
 
 <footer>
-  <p>© 2026 BrainBoost | Learn Smart 🚀</p>
+  <p>© 2026 BrainBoost 🚀</p>
 </footer>
 
 </body>
