@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrainBoost - Parts of Computer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px;
+      background: rgba(0,0,0,0.5);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 45px;
+      margin: 0;
+      letter-spacing: 2px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px #00c6ff; }
+      to { text-shadow: 0 0 20px #fff, 0 0 40px #00c6ff; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 25px;
+    }
+
+    .card {
+      background: #ffffff;
+      color: #000;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      overflow: hidden;
+      transform: translateY(30px);
+      opacity: 0;
+      animation: slideUp 1s forwards;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.2s; }
+    .card:nth-child(2) { animation-delay: 0.4s; }
+    .card:nth-child(3) { animation-delay: 0.6s; }
+    .card:nth-child(4) { animation-delay: 0.8s; }
+    .card:nth-child(5) { animation-delay: 1s; }
+    .card:nth-child(6) { animation-delay: 1.2s; }
+
+    @keyframes slideUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .card:hover {
+      transform: scale(1.08) rotate(1deg);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6), 0 0 20px #00c6ff;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .card:hover img {
+      transform: scale(1.1);
+    }
+
+    .card h2 {
+      padding: 12px;
+      margin: 0;
+      background: #2a5298;
+      color: #fff;
+    }
+
+    .card p {
+      padding: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.6);
+      margin-top: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>BrainBoost 💻</h1>
+  <p>Learn the Parts of a Computer</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x150?text=CPU" alt="CPU">
+    <h2>CPU (Central Processing Unit)</h2>
+    <p>The CPU is the brain of the computer. It performs calculations and executes instructions.</p>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x150?text=Monitor" alt="Monitor">
+    <h2>Monitor</h2>
+    <p>The monitor displays visual output from the computer like text, images, and videos.</p>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x150?text=Keyboard" alt="Keyboard">
+    <h2>Keyboard</h2>
+    <p>The keyboard is used to input data into the computer by typing.</p>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x150?text=Mouse" alt="Mouse">
+    <h2>Mouse</h2>
+    <p>The mouse is a pointing device used to interact with items on the screen.</p>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x150?text=RAM" alt="RAM">
+    <h2>RAM (Memory)</h2>
+    <p>RAM stores temporary data and helps the computer run faster.</p>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300x150?text=Hard+Disk" alt="Hard Disk">
+    <h2>Hard Disk</h2>
+    <p>The hard disk stores all your data permanently like files, software, and OS.</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 BrainBoost | Learn Smart 🚀</p>
+</footer>
+
+</body>
+</html>
