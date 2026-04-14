@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrainBoost GPSTR Premium Guide</title>
+  <style>
+    :root {
+      --bg1: #f8fbff;
+      --bg2: #f6fffb;
+      --text: #18212f;
+      --muted: #5b6472;
+      --white: rgba(255,255,255,0.85);
+      --stroke: rgba(255,255,255,0.75);
+      --shadow: 0 18px 45px rgba(31, 41, 55, 0.08);
+      --shadow-soft: 0 10px 28px rgba(31, 41, 55, 0.05);
+      --radius-xl: 30px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --blue: #4f8cff;
+      --violet: #8b5cf6;
+      --pink: #ec4899;
+      --green: #22c55e;
+      --orange: #fb923c;
+      --teal: #14b8a6;
+      --kn-default: #6b21a8; /* deep violet for readability */
+      --kn-blue: #1d4ed8;
+      --kn-green: #047857;
+      --kn-orange: #b45309;
+      --kn-pink: #be185d;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(139,92,246,0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(79,140,255,0.14), transparent 25%),
+        radial-gradient(circle at bottom left, rgba(34,197,94,0.12), transparent 25%),
+        linear-gradient(135deg, var(--bg1), var(--bg2));
+      line-height: 1.6;
+      padding: 18px;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 32px 28px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, #7c3aed 0%, #4f8cff 48%, #1cc8a0 100%);
+      box-shadow: 0 20px 50px rgba(79, 140, 255, 0.22);
+      color: #fff;
+      margin-bottom: 26px;
+      isolation: isolate;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(6px);
+      z-index: -1;
+    }
+
+    .hero::before {
+      width: 220px;
+      height: 220px;
+      right: -50px;
+      top: -70px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .hero::after {
+      width: 170px;
+      height: 170px;
+      left: -35px;
+      bottom: -55px;
+      background: rgba(255,255,255,0.10);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.22);
+      backdrop-filter: blur(10px);
+      font-size: 0.84rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 {
+      font-size: 2.35rem;
+      line-height: 1.12;
+      margin-bottom: 12px;
+      max-width: 760px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 1.03rem;
+      color: rgba(255,255,255,0.96);
+    }
+
+    .kannada-text {
+      display: block;
+      margin-top: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fef9c3;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .badge {
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      font-size: 0.86rem;
+      font-weight: 600;
+      backdrop-filter: blur(10px);
+    }
+
+    .status-grid,
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .status-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-bottom: 24px;
+    }
+
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      margin-top: 18px;
+    }
+
+    .glass-card,
+    .card,
+    .status-box,
+    .highlight {
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--stroke);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .status-box {
+      border-radius: 24px;
+      padding: 20px;
+      min-height: 190px;
+    }
+
+    .status-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .live-badge {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #fee2e2, #fff1f2);
+      color: #dc2626;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      animation: pulseBadge 1.8s infinite;
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ef4444;
+    }
+
+    .status-box::before,
+    .card::before,
+    .highlight::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.28), transparent 45%);
+      pointer-events: none;
+    }
+
+    .status-app {
+      background: linear-gradient(180deg, rgba(255,245,245,0.95), rgba(255,255,255,0.9));
+      border-top: 6px solid #fecaca;
+    }
+
+    .status-exam {
+      background: linear-gradient(180deg, rgba(241,246,255,0.95), rgba(255,255,255,0.9));
+      border-top: 6px solid #bfdbfe;
+    }
+
+    .status-hall {
+      background: linear-gradient(180deg, rgba(240,255,248,0.95), rgba(255,255,255,0.9));
+      border-top: 6px solid #a7f3d0;
+    }
+
+    .status-icon {
+      width: 48px;
+      height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .status-app .status-icon { background: linear-gradient(135deg, #ffe4e6, #fff7ed); }
+    .status-exam .status-icon { background: linear-gradient(135deg, #dbeafe, #ede9fe); }
+    .status-hall .status-icon { background: linear-gradient(135deg, #dcfce7, #ccfbf1); }
+
+    .status-box h3 {
+      font-size: 1.08rem;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .status-box p,
+    .card p,
+    .card li,
+    .highlight {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .kn {
+      color: var(--kn-default);
+      font-weight: 700;
+      display: inline-block;
+      margin-top: 3px;
+    }
+
+    .updating {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 12px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.88);
+      color: #2563eb;
+      font-weight: 700;
+      font-size: 0.84rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .updating::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    .dot-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #60a5fa;
+      animation: blink 1.4s infinite ease-in-out;
+    }
+
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes blink {
+      0%, 80%, 100% { opacity: 0.25; transform: scale(0.84); }
+      40% { opacity: 1; transform: scale(1.08); }
+    }
+
+    @keyframes shimmer {
+      0% { left: -120%; }
+      100% { left: 130%; }
+    }
+
+    @keyframes pulseBadge {
+      0%, 100% { transform: scale(1); box-shadow: 0 8px 20px rgba(239,68,68,0.18); }
+      50% { transform: scale(1.05); box-shadow: 0 12px 24px rgba(239,68,68,0.28); }
+    }
+
+    @keyframes floatButton {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+      40% { opacity: 1; transform: scale(1.08); }
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      margin: 28px 0 12px;
+      line-height: 1.18;
+      color: var(--text);
+    }
+
+    .section-title .kn-title {
+      display: block;
+      font-size: 0.98rem;
+      color: #0f766e;
+      margin-top: 5px;
+      font-weight: 700;
+    }
+
+    .highlight {
+      border-radius: 24px;
+      padding: 22px;
+      margin: 22px 0;
+      background: linear-gradient(135deg, rgba(255,249,219,0.96), rgba(255,241,242,0.96));
+      border-left: 6px solid #f59e0b;
+    }
+
+    .card {
+      border-radius: 24px;
+      padding: 22px;
+      min-height: 100%;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .card h2 {
+      font-size: 1.18rem;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .card .kn-title {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.95rem;
+      color: #7c3aed;
+      font-weight: 700;
+    }
+
+    .card ul { padding-left: 18px; }
+    .card li { margin-bottom: 8px; }
+
+    .accent-purple {
+      background: linear-gradient(180deg, rgba(250,245,255,0.96), rgba(255,255,255,0.9));
+      border-top: 6px solid #d8b4fe;
+    }
+    .accent-purple .kn { color: var(--kn-default); }
+    .accent-green {
+      background: linear-gradient(180deg, rgba(240,253,244,0.96), rgba(255,255,255,0.9));
+      border-top: 6px solid #86efac;
+    }
+    .accent-green .kn { color: var(--kn-green); }
+    .accent-orange {
+      background: linear-gradient(180deg, rgba(255,247,237,0.96), rgba(255,255,255,0.9));
+      border-top: 6px solid #fdba74;
+    }
+    .accent-orange .kn { color: var(--kn-orange); }
+    .accent-pink {
+      background: linear-gradient(180deg, rgba(253,242,248,0.96), rgba(255,255,255,0.9));
+      border-top: 6px solid #f9a8d4;
+    }
+    .accent-pink .kn { color: var(--kn-pink); }
+    .accent-blue {
+      background: linear-gradient(180deg, rgba(239,246,255,0.96), rgba(255,255,255,0.9));
+      border-top: 6px solid #93c5fd;
+    }
+    .accent-blue .kn { color: var(--kn-blue); }
+
+    .footer {
+      text-align: center;
+      margin-top: 28px;
+      padding: 22px 16px 90px;
+      color: #667085;
+      font-size: 0.95rem;
+    }
+
+    .sticky-cta {
+      position: sticky;
+      bottom: 14px;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      margin-top: 22px;
+    }
+
+    .sticky-cta button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 15px 24px;
+      min-width: 260px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #7c3aed, #4f8cff, #14b8a6);
+      color: #fff;
+      font-size: 0.98rem;
+      font-weight: 800;
+      box-shadow: 0 16px 30px rgba(79,140,255,0.28);
+      animation: floatButton 2.5s ease-in-out infinite;
+    }
+
+    .sticky-cta button span {
+      opacity: 0.92;
+      font-weight: 700;
+      margin-left: 6px;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 14px; }
+      .hero { padding: 24px 18px; border-radius: 26px; }
+      .hero h1 { font-size: 1.95rem; }
+      .hero p { font-size: 0.98rem; }
+      .section-title { font-size: 1.4rem; }
+      .grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+      .status-grid { grid-template-columns: 1fr; }
+      .card, .status-box, .highlight { padding: 18px; border-radius: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 12px; }
+      .hero h1 { font-size: 1.62rem; }
+      .hero p, .card p, .card li, .status-box p, .highlight { font-size: 0.93rem; }
+      .badge { font-size: 0.77rem; padding: 8px 11px; }
+      .section-title { font-size: 1.24rem; }
+      .section-title .kn-title,
+      .card .kn-title { font-size: 0.9rem; }
+      .card h2, .status-box h3 { font-size: 1.03rem; }
+      .grid, .status-grid { grid-template-columns: 1fr; }
+      .sticky-cta button {
+        width: 100%;
+        min-width: 0;
+        font-size: 0.94rem;
+        padding: 14px 18px;
+      }
+      .live-badge {
+        font-size: 0.7rem;
+        padding: 6px 9px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="eyebrow">✨ Premium BrainBoost Design</div>
+      <h1>BrainBoost GPSTR Success Guide</h1>
+      <p>
+        Crack GPSTR with a smart plan, brief syllabus focus, and consistent practice. BrainBoost helps aspiring teachers learn with clarity, confidence, and daily direction.
+        <span class="kannada-text">ಬ್ರೇನ್‌ಬೂಸ್ಟ್ ಜೊತೆ GPSTR ತಯಾರಿ ಇನ್ನಷ್ಟು ಸುಲಭ, ಸ್ಪಷ್ಟ ಮತ್ತು ಯಶಸ್ವಿಯಾಗಲಿ.</span>
+      </p>
+      <div class="badge-row">
+        <span class="badge">GPSTR Preparation</span>
+        <span class="badge">Brief Syllabus</span>
+        <span class="badge">Daily Strategy</span>
+        <span class="badge">BrainBoost Learning</span>
+      </div>
+    </section>
+
+    <div class="status-grid">
+      <div class="status-box status-app">
+        <div class="status-top">
+          <div class="status-icon">📌</div>
+          <div class="live-badge"><span class="live-dot"></span> NEW UPDATE</div>
+        </div>
+        <h3>Application Date <span class="kn">ಅರ್ಜಿ ದಿನಾಂಕ</span></h3>
+        <p>Notification not released yet. Date is updating.</p>
+        <span class="kn">ಇನ್ನೂ ಅಧಿಸೂಚನೆ ಬಿಡುಗಡೆಯಾಗಿಲ್ಲ. ದಿನಾಂಕ ನವೀಕರಿಸಲಾಗುತ್ತಿದೆ.</span>
+        <div class="updating">Updating <span class="dot-wrap"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+      </div>
+
+      <div class="status-box status-exam">
+        <div class="status-top">
+          <div class="status-icon">🗓️</div>
+          <div class="live-badge"><span class="live-dot"></span> NEW UPDATE</div>
+        </div>
+        <h3>Exam Date <span class="kn">ಪರೀಕ್ಷಾ ದಿನಾಂಕ</span></h3>
+        <p>Exam schedule not announced yet. Updating status shown here.</p>
+        <span class="kn">ಪರೀಕ್ಷೆಯ ವೇಳಾಪಟ್ಟಿ ಇನ್ನೂ ಪ್ರಕಟವಾಗಿಲ್ಲ. ಇಲ್ಲಿ ನವೀಕರಣ ತೋರಿಸಲಾಗುತ್ತದೆ.</span>
+        <div class="updating">Updating <span class="dot-wrap"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+      </div>
+
+      <div class="status-box status-hall">
+        <div class="status-top">
+          <div class="status-icon">🎫</div>
+          <div class="live-badge"><span class="live-dot"></span> NEW UPDATE</div>
+        </div>
+        <h3>Hall Ticket <span class="kn">ಹಾಲ್ ಟಿಕೆಟ್</span></h3>
+        <p>Hall ticket date not available yet. Please check updates.</p>
+        <span class="kn">ಹಾಲ್ ಟಿಕೆಟ್ ದಿನಾಂಕ ಇನ್ನೂ ಲಭ್ಯವಿಲ್ಲ. ನವೀಕರಣಗಳನ್ನು ಪರಿಶೀಲಿಸಿ.</span>
+        <div class="updating">Updating <span class="dot-wrap"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span></div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>Why BrainBoost for GPSTR?</strong><br />
+      BrainBoost is not just a study platform. It is a focused learning project designed to make preparation simple, structured, motivating, and exam-oriented for future teachers.<br />
+      <span class="kn">GPSTR ಅಭ್ಯಾಸವನ್ನು ಸರಳ, ವ್ಯವಸ್ಥಿತ ಮತ್ತು ಗುರಿ ಆಧಾರಿತವಾಗಿಸಲು ಬ್ರೇನ್‌ಬೂಸ್ಟ್ ಸಹಾಯ ಮಾಡುತ್ತದೆ.</span>
+    </div>
+
+    <h2 class="section-title">What is GPSTR?<span class="kn-title">GPSTR ಎಂದರೇನು?</span></h2>
+    <div class="card accent-blue">
+      <p><strong>GPSTR</strong> is a teacher recruitment exam for graduate primary school teacher posts.</p>
+      <p><span class="kn">GPSTR ಎಂಬುದು ಪದವೀಧರ ಪ್ರಾಥಮಿಕ ಶಾಲಾ ಶಿಕ್ಷಕರ ನೇಮಕಾತಿ ಪರೀಕ್ಷೆಯಾಗಿದೆ.</span></p>
+      <p>To crack it well, candidates need subject knowledge, pedagogy understanding, language skills, and regular practice.</p>
+      <p><span class="kn">ಈ ಪರೀಕ್ಷೆಯಲ್ಲಿ ಯಶಸ್ಸು ಪಡೆಯಲು ವಿಷಯ ಜ್ಞಾನ, ಪೆಡಗೋಗಿ ತಿಳುವಳಿಕೆ, ಭಾಷಾ ಕೌಶಲ್ಯ ಮತ್ತು ನಿಯಮಿತ ಅಭ್ಯಾಸ ಅಗತ್ಯ.</span></p>
+    </div>
+
+    <h2 class="section-title">How BrainBoost Connects to GPSTR Preparation<span class="kn-title">GPSTR ತಯಾರಿಯಲ್ಲಿ ಬ್ರೇನ್‌ಬೂಸ್ಟ್ ಹೇಗೆ ಸಹಾಯಕ?</span></h2>
+    <div class="grid">
+      <div class="card accent-purple">
+        <h2>1. Clear Learning Path <span class="kn-title">ಸ್ಪಷ್ಟ ಅಧ್ಯಯನ ದಾರಿ</span></h2>
+        <ul>
+          <li>Breaks big syllabus into simple daily targets<br><span class="kn">ದೊಡ್ಡ ಸಿಲೆಬಸ್ ಅನ್ನು ದಿನನಿತ್ಯದ ಸಣ್ಣ ಗುರಿಗಳಾಗಿ ವಿಭಜಿಸುತ್ತದೆ</span></li>
+          <li>Helps students avoid confusion and random study<br><span class="kn">ಅವ್ಯವಸ್ಥಿತ ಓದನ್ನು ತಪ್ಪಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ</span></li>
+          <li>Keeps preparation focused and step by step<br><span class="kn">ತಯಾರಿಯನ್ನು ಹಂತ ಹಂತವಾಗಿ ಸಾಗಿಸುತ್ತದೆ</span></li>
+        </ul>
+      </div>
+      <div class="card accent-green">
+        <h2>2. Smart Revision Support <span class="kn-title">ಚುರುಕಾದ ಮರುಅಭ್ಯಾಸ</span></h2>
+        <ul>
+          <li>Encourages quick revision through brief points<br><span class="kn">ಸಂಕ್ಷಿಪ್ತ ಅಂಶಗಳ ಮೂಲಕ ಬೇಗ ಮರುಅಭ್ಯಾಸ ಮಾಡಲು ನೆರವಾಗುತ್ತದೆ</span></li>
+          <li>Supports memory retention with repeated review<br><span class="kn">ಪುನರಾವರ್ತನೆಯಿಂದ ನೆನಪು ಹೆಚ್ಚುತ್ತದೆ</span></li>
+          <li>Useful for weekly and exam-time revision<br><span class="kn">ವಾರದ ಮತ್ತು ಪರೀಕ್ಷಾ ಸಮಯದ ಮರುಅಭ್ಯಾಸಕ್ಕೆ ಉತ್ತಮ</span></li>
+        </ul>
+      </div>
+      <div class="card accent-orange">
+        <h2>3. Motivation and Consistency <span class="kn-title">ಪ್ರೇರಣೆ ಮತ್ತು ನಿಯಮಿತತೆ</span></h2>
+        <ul>
+          <li>Helps aspirants stay regular every day<br><span class="kn">ಪ್ರತಿ ದಿನವೂ ನಿಯಮಿತವಾಗಿ ಓದಲು ಪ್ರೇರೇಪಿಸುತ್ತದೆ</span></li>
+          <li>Builds confidence through planned learning<br><span class="kn">ಯೋಜಿತ ಓದಿನಿಂದ ಆತ್ಮವಿಶ್ವಾಸ ಹೆಚ್ಚುತ್ತದೆ</span></li>
+          <li>Turns preparation into a disciplined routine<br><span class="kn">ತಯಾರಿಯನ್ನು ಶಿಸ್ತಿನ ಅಭ್ಯಾಸವನ್ನಾಗಿ ಮಾಡುತ್ತದೆ</span></li>
+        </ul>
+      </div>
+      <div class="card accent-pink">
+        <h2>4. Exam-Oriented Practice <span class="kn-title">ಪರೀಕ್ಷಾಕೇಂದ್ರಿತ ಅಭ್ಯಾಸ</span></h2>
+        <ul>
+          <li>Encourages previous paper practice<br><span class="kn">ಹಿಂದಿನ ಪ್ರಶ್ನೆಪತ್ರಿಕೆಗಳ ಅಭ್ಯಾಸಕ್ಕೆ ಉತ್ತೇಜನ ನೀಡುತ್ತದೆ</span></li>
+          <li>Supports mock test mindset<br><span class="kn">ಮಾಕ್ ಟೆಸ್ಟ್ ಮನೋಭಾವ ಬೆಳೆಸುತ್ತದೆ</span></li>
+          <li>Improves speed, accuracy, and time management<br><span class="kn">ವೇಗ, ಶುದ್ಧತೆ ಮತ್ತು ಸಮಯ ನಿರ್ವಹಣೆಯನ್ನು ಸುಧಾರಿಸುತ್ತದೆ</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-title">Brief GPSTR Syllabus Points<span class="kn-title">GPSTR ಸಂಕ್ಷಿಪ್ತ ಸಿಲೆಬಸ್ ಅಂಶಗಳು</span></h2>
+    <div class="grid">
+      <div class="card accent-blue">
+        <h2>General Knowledge <span class="kn-title">ಸಾಮಾನ್ಯ ಜ್ಞಾನ</span></h2>
+        <ul>
+          <li>Indian history basics<br><span class="kn">ಭಾರತದ ಇತಿಹಾಸದ ಮೂಲಭೂತ ಅಂಶಗಳು</span></li>
+          <li>Geography basics<br><span class="kn">ಭೂಗೋಳದ ಮೂಲಭೂತ ಅಂಶಗಳು</span></li>
+          <li>Indian constitution and polity<br><span class="kn">ಭಾರತೀಯ ಸಂವಿಧಾನ ಮತ್ತು ರಾಜಕೀಯ ವ್ಯವಸ್ಥೆ</span></li>
+          <li>Karnataka-related current affairs<br><span class="kn">ಕರ್ನಾಟಕಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಪ್ರಸ್ತುತ ಘಟನೆಗಳು</span></li>
+          <li>Important national events<br><span class="kn">ಮುಖ್ಯ ರಾಷ್ಟ್ರೀಯ ಘಟನೆಗಳು</span></li>
+        </ul>
+      </div>
+      <div class="card accent-purple">
+        <h2>Kannada Language <span class="kn-title">ಕನ್ನಡ ಭಾಷೆ</span></h2>
+        <ul>
+          <li>Grammar basics<br><span class="kn">ವ್ಯಾಕರಣದ ಮೂಲಭೂತ ಅಂಶಗಳು</span></li>
+          <li>Vocabulary<br><span class="kn">ಶಬ್ದಕೋಶ</span></li>
+          <li>Sentence usage<br><span class="kn">ವಾಕ್ಯ ಬಳಕೆ</span></li>
+          <li>Comprehension<br><span class="kn">ಅರ್ಥಗ್ರಹಣ</span></li>
+          <li>Language accuracy<br><span class="kn">ಭಾಷಾ ಶುದ್ಧತೆ</span></li>
+        </ul>
+      </div>
+      <div class="card accent-green">
+        <h2>English Language <span class="kn-title">ಇಂಗ್ಲಿಷ್ ಭಾಷೆ</span></h2>
+        <ul>
+          <li>Basic grammar<br><span class="kn">ಮೂಲ ವ್ಯಾಕರಣ</span></li>
+          <li>Vocabulary building<br><span class="kn">ಶಬ್ದಸಂಪತ್ತು ವೃದ್ಧಿ</span></li>
+          <li>Reading comprehension<br><span class="kn">ಓದು ಅರ್ಥಗ್ರಹಣ</span></li>
+          <li>Sentence correction<br><span class="kn">ವಾಕ್ಯ ತಿದ್ದುಪಡಿ</span></li>
+          <li>Usage and clarity<br><span class="kn">ಸರಿಯಾದ ಬಳಕೆ ಮತ್ತು ಸ್ಪಷ್ಟತೆ</span></li>
+        </ul>
+      </div>
+      <div class="card accent-orange">
+        <h2>Child Development & Pedagogy <span class="kn-title">ಮಕ್ಕಳ ಬೆಳವಣಿಗೆ ಮತ್ತು ಪೆಡಗೋಗಿ</span></h2>
+        <ul>
+          <li>Learning theories<br><span class="kn">ಅಭ್ಯಾಸ ಸಿದ್ಧಾಂತಗಳು</span></li>
+          <li>Child psychology basics<br><span class="kn">ಮಕ್ಕಳ ಮನೋವಿಜ್ಞಾನ ಮೂಲಾಂಶಗಳು</span></li>
+          <li>Teaching methods<br><span class="kn">ಬೋಧನಾ ವಿಧಾನಗಳು</span></li>
+          <li>Classroom management<br><span class="kn">ತರಗತಿ ನಿರ್ವಹಣೆ</span></li>
+          <li>Learner-centered education<br><span class="kn">ವಿದ್ಯಾರ್ಥಿ ಕೇಂದ್ರಿತ ಶಿಕ್ಷಣ</span></li>
+        </ul>
+      </div>
+      <div class="card accent-pink">
+        <h2>Subject-Specific Paper <span class="kn-title">ವಿಷಯಾಧಾರಿತ ಪ್ರಶ್ನೆಪತ್ರಿಕೆ</span></h2>
+        <ul>
+          <li>Degree-based subject preparation<br><span class="kn">ಪದವಿಗೆ ಅನುಗುಣವಾದ ವಿಷಯ ತಯಾರಿ</span></li>
+          <li>Core concepts and fundamentals<br><span class="kn">ಮೂಲ ತತ್ತ್ವಗಳು ಮತ್ತು ನೆಲೆಯ ಅಂಶಗಳು</span></li>
+          <li>Important textbook topics<br><span class="kn">ಮುಖ್ಯ ಪಠ್ಯಪುಸ್ತಕ ವಿಷಯಗಳು</span></li>
+          <li>Application-based questions<br><span class="kn">ಅನ್ವಯಾತ್ಮಕ ಪ್ರಶ್ನೆಗಳು</span></li>
+          <li>Repeated practice from past papers<br><span class="kn">ಹಿಂದಿನ ಪ್ರಶ್ನೆಪತ್ರಿಕೆಗಳಿಂದ ಪುನರಾವರ್ತಿತ ಅಭ್ಯಾಸ</span></li>
+        </ul>
+      </div>
+      <div class="card accent-blue">
+        <h2>Preparation Essentials <span class="kn-title">ತಯಾರಿಯ ಮುಖ್ಯ ಅಂಶಗಳು</span></h2>
+        <ul>
+          <li>Study with a timetable<br><span class="kn">ಕಾಲಪಟ್ಟಿಯೊಂದಿಗೆ ಓದಿ</span></li>
+          <li>Revise every week<br><span class="kn">ಪ್ರತಿ ವಾರ ಮರುಅಭ್ಯಾಸ ಮಾಡಿ</span></li>
+          <li>Solve mock tests regularly<br><span class="kn">ನಿಯಮಿತವಾಗಿ ಮಾಕ್ ಟೆಸ್ಟ್ ತೆಗೆದುಕೊಳ್ಳಿ</span></li>
+          <li>Practice previous year papers<br><span class="kn">ಹಿಂದಿನ ವರ್ಷದ ಪ್ರಶ್ನೆಪತ್ರಿಕೆಗಳನ್ನು ಅಭ್ಯಾಸ ಮಾಡಿ</span></li>
+          <li>Focus on accuracy and consistency<br><span class="kn">ಶುದ್ಧತೆ ಮತ್ತು ನಿಯಮಿತತೆಯಲ್ಲಿ ಗಮನಕೊಡಿ</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-title">How to Crack GPSTR with BrainBoost<span class="kn-title">ಬ್ರೇನ್‌ಬೂಸ್ಟ್ ಜೊತೆಗೆ GPSTR ಕ್ರ್ಯಾಕ್ ಮಾಡುವ ವಿಧಾನ</span></h2>
+    <div class="grid">
+      <div class="card accent-green">
+        <h2>Daily Method <span class="kn-title">ದೈನಂದಿನ ವಿಧಾನ</span></h2>
+        <ul>
+          <li>Morning: Subject preparation<br><span class="kn">ಬೆಳಿಗ್ಗೆ: ವಿಷಯ ಅಭ್ಯಾಸ</span></li>
+          <li>Afternoon: Pedagogy concepts<br><span class="kn">ಮಧ್ಯಾಹ್ನ: ಪೆಡಗೋಗಿ</span></li>
+          <li>Evening: GK and language practice<br><span class="kn">ಸಂಜೆ: ಸಾಮಾನ್ಯ ಜ್ಞಾನ ಮತ್ತು ಭಾಷಾ ಅಭ್ಯಾಸ</span></li>
+          <li>Night: Quick revision of the day<br><span class="kn">ರಾತ್ರಿ: ದಿನದ ತ್ವರಿತ ಮರುಅಭ್ಯಾಸ</span></li>
+        </ul>
+      </div>
+      <div class="card accent-purple">
+        <h2>Weekly Method <span class="kn-title">ವಾರದ ವಿಧಾನ</span></h2>
+        <ul>
+          <li>Complete topic targets<br><span class="kn">ಗುರಿ ವಿಷಯಗಳನ್ನು ಪೂರ್ಣಗೊಳಿಸಿ</span></li>
+          <li>Take one mock test<br><span class="kn">ಒಂದು ಮಾಕ್ ಟೆಸ್ಟ್ ತೆಗೆದುಕೊಳ್ಳಿ</span></li>
+          <li>Analyze mistakes<br><span class="kn">ತಪ್ಪುಗಳನ್ನು ವಿಶ್ಲೇಷಿಸಿ</span></li>
+          <li>Revise weak areas<br><span class="kn">ದುರ್ಬಲ ಭಾಗಗಳನ್ನು ಮರುಅಭ್ಯಾಸ ಮಾಡಿ</span></li>
+        </ul>
+      </div>
+      <div class="card accent-orange">
+        <h2>Winning Mindset <span class="kn-title">ಯಶಸ್ಸಿನ ಮನೋಭಾವ</span></h2>
+        <ul>
+          <li>Do not study randomly<br><span class="kn">ಅವ್ಯವಸ್ಥಿತವಾಗಿ ಓದಬೇಡಿ</span></li>
+          <li>Do not skip pedagogy<br><span class="kn">ಪೆಡಗೋಗಿಯನ್ನು ಬಿಟ್ಟುಬಿಡಬೇಡಿ</span></li>
+          <li>Do not ignore revision<br><span class="kn">ಮರುಅಭ್ಯಾಸವನ್ನು ನಿರ್ಲಕ್ಷಿಸಬೇಡಿ</span></li>
+          <li>Stay regular and positive<br><span class="kn">ನಿಯಮಿತ ಮತ್ತು ಧನಾತ್ಮಕವಾಗಿರಿ</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>Final Thought</strong><br />
+      GPSTR success is possible when preparation is smart, syllabus is clear, and revision is regular. BrainBoost supports aspirants by making learning easier, sharper, and more goal-oriented.<br />
+      <span class="kn">ಸ್ಮಾರ್ಟ್ ತಯಾರಿ, ಸ್ಪಷ್ಟ ಸಿಲೆಬಸ್ ಮತ್ತು ನಿಯಮಿತ ಮರುಅಭ್ಯಾಸ ಇದ್ದರೆ GPSTR ಯಶಸ್ಸು ಸಾಧ್ಯ. ಬ್ರೇನ್‌ಬೂಸ್ಟ್ ಈ ಪ್ರಯಾಣವನ್ನು ಇನ್ನಷ್ಟು ಸುಲಭಗೊಳಿಸುತ್ತದೆ.</span>
+    </div>
+
+    <div class="sticky-cta">
+      <button>🔔 Get Notification <span>ನವೀಕರಣ ಪಡೆಯಿರಿ</span></button>
+    </div>
+
+    <div class="footer">
+      BrainBoost Project • Empowering Future Teachers with Smart Preparation<br />
+      <span class="kn">ಬ್ರೇನ್‌ಬೂಸ್ಟ್ ಯೋಜನೆ • ಭವಿಷ್ಯದ ಶಿಕ್ಷಕರಿಗೆ ಚುರುಕಾದ ತಯಾರಿ</span>
+    </div>
+  </div>
+</body>
+</html>
