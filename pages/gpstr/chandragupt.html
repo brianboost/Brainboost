@@ -2,256 +2,150 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Chandragupta Maurya: Royal Notes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=IM+Fell+English+SC&family=Noto+Serif+Kannada:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Legend of Chandragupta Maurya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Serif+Kannada:wght@400;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --royal-gold: #C9A050;
-            --deep-maroon: #4A0404;
-            --parchment: #F5EEDA;
-            --text-dark: #2A1A0A;
-            --shadow: 0 4px 15px rgba(0,0,0,0.5);
+            --gold: #d4af37;
+            --crimson: #7b0000;
+            --parchment: #fcf5e5;
+            --dark: #1a1a1a;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: var(--dark); font-family: 'Playfair Display', serif; color: #333; }
 
-        body {
-            font-family: 'IM Fell English SC', serif;
-            background-color: #1a1a1a;
-            color: var(--text-dark);
-            overflow: hidden; /* For horizontal scroll effect */
-        }
+        /* Main Container */
+        .story-container { max-width: 500px; margin: auto; background: var(--parchment); }
 
-        /* Kannada Font Style */
-        .kn { font-family: 'Noto Serif Kannada', serif; font-weight: 400; }
-
-        /* Main Scroll Container (Horizontal) */
-        .presentation-container {
-            display: flex;
-            width: 100vw;
-            height: 100vh;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        /* Individual Slide Style */
-        .slide {
-            flex: 0 0 100vw;
-            height: 100vh;
-            scroll-snap-align: start;
-            position: relative;
-            overflow-y: auto; /* Allow vertical scroll within a slide */
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            border-right: 2px solid var(--royal-gold);
-        }
-
-        /* Parchment Effect for Content */
-        .content-box {
-            background-color: var(--parchment);
-            background-image: url('https://www.transparenttextures.com/patterns/p6.png'); /* Subtle parchment texture */
-            padding: 25px 20px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            border: 2px solid #D2B48C;
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        /* Decorative Border Inside Content Box */
-        .content-box::before {
-            content: '';
-            position: absolute;
-            top: 5px; left: 5px; right: 5px; bottom: 5px;
-            border: 1px solid rgba(139, 69, 19, 0.3);
-            border-radius: 8px;
-            pointer-events: none;
-        }
-
-        /* Headings */
-        h1, h2 {
-            font-family: 'Cinzel', serif;
-            color: var(--deep-maroon);
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--royal-gold);
-            padding-bottom: 10px;
-        }
-
-        .kannada-title {
-            font-family: 'Noto Serif Kannada', serif;
-            color: #5d4037;
-            font-size: 1.1em;
-            display: block;
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        /* Note Points */
-        .notes-list {
-            list-style: none;
-            line-height: 1.6;
-            font-size: 1.05em;
-        }
-
-        .notes-list li {
-            margin-bottom: 12px;
-            padding-left: 25px;
+        /* Section Styling */
+        .section {
+            padding: 0 0 40px 0;
+            border-bottom: 8px solid var(--gold);
             position: relative;
         }
 
-        /* Bullet Icon (Ancient Style) */
-        .notes-list li::before {
-            content: '✦';
-            color: var(--royal-gold);
-            position: absolute;
-            left: 0;
-            font-size: 1.2em;
-        }
-
-        .highlight { color: #8B4513; font-weight: bold; }
-
-        /* Exam Tips Box */
-        .exam-tip {
-            background: rgba(201, 160, 80, 0.2);
-            border-left: 4px solid var(--royal-gold);
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 4px;
-            font-style: italic;
-        }
-
-        .exam-tip b { color: var(--deep-maroon); font-family: 'Cinzel', serif; }
-
-        /* --- Image Definitions (Using CSS backgrounds) --- */
-
-        /* Slide 1: Title Image */
-        #slide1 {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1599148401005-fe6d7497dd5e?q=80&w=1000&auto=format&fit=crop');
+        /* Hero Image Styles */
+        .image-frame {
+            width: 100%;
+            height: 300px;
             background-size: cover;
             background-position: center;
-            justify-content: center;
-            color: white;
+            border-bottom: 5px solid var(--gold);
+            display: flex;
+            align-items: flex-end;
         }
 
-        #slide1 h1 { color: var(--royal-gold); border-bottom-color: white; font-size: 2.2em; }
-        #slide1 .kannada-title { color: #e0e0e0; }
-
-        /* Slide 2: Rise Image (Chanakya/Maurya Art) */
-        #slide2 {
-            background: linear-gradient(to bottom, rgba(26,26,26,0.9) 10%, rgba(26,26,26,0) 50%, rgba(26,26,26,0.9) 90%),
-                        url('https://upload.wikimedia.org/wikipedia/commons/e/eb/Chanakya_Art_Work.jpg');
-            background-size: cover;
-            background-position: top center;
-        }
-
-        /* Slide 3: War/Expansion Image */
-        #slide3 {
-            background: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)),
-                        url('https://images.unsplash.com/photo-1581331890333-66a934c9c19b?q=80&w=1000&auto=format&fit=crop');
-            background-size: cover;
-        }
-
-        /* Slide 4: Jainism/Final Days Image */
-        #slide4 {
-            background: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)),
-                        url('https://images.unsplash.com/photo-1620302898394-b15f9927909b?q=80&w=1000&auto=format&fit=crop');
-            background-size: cover;
-        }
-
-        /* Ancient Table Style for Slide 3 */
-        .ancient-table {
+        .img-caption {
+            background: rgba(123, 0, 0, 0.8);
+            color: var(--gold);
             width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
+            padding: 10px;
+            font-family: 'Cinzel', serif;
             font-size: 0.9em;
+            text-align: center;
         }
-        .ancient-table th { background: var(--deep-maroon); color: var(--royal-gold); padding: 10px; text-transform: uppercase; font-family: 'Cinzel', serif; }
-        .ancient-table td { border: 1px solid #D2B48C; padding: 8px; background: rgba(255,255,255,0.5); }
 
+        /* Text Content */
+        .content { padding: 25px; }
+        h1, h2 { font-family: 'Cinzel', serif; color: var(--crimson); margin-bottom: 10px; text-align: center; }
+        .kn-text { font-family: 'Noto Serif Kannada', serif; display: block; text-align: center; color: #555; font-size: 1.1em; margin-bottom: 20px; font-weight: bold; }
+        
+        ul { list-style: none; }
+        li { 
+            margin-bottom: 15px; 
+            padding-left: 30px; 
+            position: relative; 
+            line-height: 1.6; 
+            font-size: 1.1em;
+        }
+        li::before {
+            content: '⬥';
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+        }
+
+        .highlight { color: var(--crimson); font-weight: bold; border-bottom: 1px solid var(--gold); }
+
+        /* Specialized Section Backgrounds */
+        .bg-war { background-image: url('https://images.unsplash.com/photo-1599148401005-fe6d7497dd5e?auto=format&fit=crop&q=80&w=800'); }
+        .bg-mentor { background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/eb/Chanakya_Art_Work.jpg'); }
+        .bg-walking { background-image: url('https://images.unsplash.com/photo-1620302898394-b15f9927909b?auto=format&fit=crop&q=80&w=800'); }
+        .bg-map { background-image: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=800'); }
+
+        .footer { background: var(--crimson); color: var(--gold); text-align: center; padding: 20px; font-family: 'Cinzel', serif; font-size: 0.8em; }
     </style>
 </head>
 <body>
 
-    <div class="presentation-container">
+    <div class="story-container">
 
-        <section class="slide" id="slide1">
-            <div class="content-box" style="background: transparent; border: none; box-shadow: none; text-align: center;">
-                <h1>Chandragupta Maurya</h1>
-                <span class="kannada-title">ಚಂದ್ರಗುಪ್ತ ಮೌರ್ಯ: ಭಾರತದ ಪ್ರಥಮ ಸಾಮ್ರಾಟ</span>
-                <p style="font-size: 1.2em; color: var(--royal-gold); font-weight: bold;">Founder of the Mauryan Empire</p>
-                <p style="font-size: 1em;">(322–298 BCE)</p>
-                <div style="margin-top: 30px; font-size: 0.8em; opacity: 0.8;">Scroll Sideways →</div>
+        <section class="section">
+            <div class="image-frame bg-mentor">
+                <div class="img-caption">The Vision: Chandragupta & Chanakya</div>
             </div>
-        </section>
-
-        <section class="slide" id="slide2">
-            <div style="height: 35vh;"></div> 
-            
-            <div class="content-box">
-                <h2>I. Origins & Mentor</h2>
-                <span class="kannada-title kn">ಉಗಮ ಮತ್ತು ಗುರು</span>
-                
-                <ul class="notes-list">
-                    <li>Overthrew <span class="highlight">Dhana Nanda</span> (Last Nanda King) to establish the Dynasty.</li>
-                    <li>Guided by <span class="highlight">Chanakya</span> (Kautilya/Vishnugupta), the master strategist.</li>
-                    <li>Known as <span class="highlight">Sandrocottus</span> in Greek records.</li>
-                    <li>Capital: <span class="highlight">Pataliputra</span> (modern Patna).</li>
+            <div class="content">
+                <h1>The Mentor's Oath</h1>
+                <span class="kn-text">ಚಾಣಕ್ಯ ಮತ್ತು ಚಂದ್ರಗುಪ್ತನ ಶಪಥ</span>
+                <ul>
+                    <li><span class="highlight">Chanakya:</span> The brain behind the empire, author of <span class="highlight">Arthashastra</span>.</li>
+                    <li>Together they destroyed the corrupt <span class="highlight">Nanda Dynasty</span>.</li>
+                    <li>Established the capital at <span class="highlight">Pataliputra</span>.</li>
                 </ul>
-
-                <div class="exam-tip">
-                    <b>✦ Note:</b> The Sanskrit play <span class="highlight">Mudrarakshasa</span> (by Vishakhadatta) details his rise to power.
-                </div>
             </div>
         </section>
 
-        <section class="slide" id="slide3">
-            <div class="content-box">
-                <h2>II. Conquests & Rule</h2>
-                <span class="kannada-title kn">ದಿಗ್ವಿಜಯಗಳು ಮತ್ತು ಆಡಳಿತ</span>
-                
-                <ul class="notes-list">
-                    <li>Defeated the Greek General <span class="highlight">Seleucus Nicator</span> (305 BCE).</li>
-                    <li>Acquired territories: Kabul, Kandahar, Herat, and Baluchistan.</li>
-                    <li>First ruler to unite almost the <span class="highlight">entire Indian Subcontinent</span>.</li>
+        <section class="section">
+            <div class="image-frame bg-war">
+                <div class="img-caption">The Battle against Seleucus Nicator</div>
+            </div>
+            <div class="content">
+                <h2>The Great Expansion</h2>
+                <span class="kn-text">ಮಹಾ ದಿಗ್ವಿಜಯಗಳು</span>
+                <ul>
+                    <li>Defeated the Greek King <span class="highlight">Seleucus Nicator</span> (305 BCE).</li>
+                    <li>Won territories of <span class="highlight">Kabul, Kandahar, & Herat</span>.</li>
+                    <li>First King to unite India from <span class="highlight">Himalayas to Mysore</span>.</li>
                 </ul>
-
-                <table class="ancient-table">
-                    <tr><th>Source</th><th>Author</th><th class="kn">ವಿಷಯ</th></tr>
-                    <tr><td>Arthashastra</td><td>Kautilya</td><td class="kn">ರಾಜನೀತಿ</td></tr>
-                    <tr><td>Indica</td><td>Megasthenes</td><td class="kn">ಆಡಳಿತ</td></tr>
-                </table>
-
-                <div class="exam-tip">
-                    <b>✦ KPSC Tip:</b> <span class="highlight">Megasthenes</span> was the Greek ambassador sent by Seleucus to Chandragupta's court.
-                </div>
             </div>
         </section>
 
-        <section class="slide" id="slide4">
-            <div class="content-box">
-                <h2>III. Faith & End</h2>
-                <span class="kannada-title kn">ಧರ್ಮ ಮತ್ತು ಅಂತಿಮ ದಿನಗಳು</span>
-                
-                <ul class="notes-list">
-                    <li>Embraced <span class="highlight">Jainism</span> in his later years.</li>
-                    <li>Followed the Jain monk <span class="highlight">Bhadrabahu</span> to South India.</li>
-                    <li>Abdicated the throne for his son <span class="highlight">Bindusara</span>.</li>
-                    <li>Performed <span class="highlight">Sallekhana</span> (fasting to death) in Karnataka.</li>
+        <section class="section">
+            <div class="image-frame bg-map">
+                <div class="img-caption">The First Pan-Indian Empire</div>
+            </div>
+            <div class="content">
+                <h2>The Golden Admin</h2>
+                <span class="kn-text">ಮೌರ್ಯರ ಆಡಳಿತ ವ್ಯವಸ್ಥೆ</span>
+                <ul>
+                    <li><span class="highlight">Megasthenes:</span> Greek ambassador who wrote <span class="highlight">Indica</span>.</li>
+                    <li>Created a powerful spy network (Gudha Purushas).</li>
+                    <li>Built the <span class="highlight">Sudarshana Lake</span> for farmers.</li>
                 </ul>
-
-                <div class="exam-tip" style="background: rgba(74, 4, 4, 0.1); border-left-color: var(--deep-maroon);">
-                    <b>✦ High Alert:</b> The place of his death is <span class="highlight">Shravanabelagola</span> (Hassan Dist, Karnataka). The hill is named <span class="highlight">Chandragiri</span> after him.
-                </div>
             </div>
         </section>
+
+        <section class="section">
+            <div class="image-frame bg-walking">
+                <div class="img-caption">The Long Walk to Shravanabelagola</div>
+            </div>
+            <div class="content">
+                <h2>The Saint King</h2>
+                <span class="kn-text">ಶ್ರವಣಬೆಳಗೊಳದ ಅಂತಿಮ ಪ್ರಯಾಣ</span>
+                <ul>
+                    <li>Walked south with Saint <span class="highlight">Bhadrabahu</span> during a famine.</li>
+                    <li>Gave up his throne to <span class="highlight">Bindusara</span>.</li>
+                    <li>Attained Moksha via <span class="highlight">Sallekhana</span> in Karnataka.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="footer">
+            MAURYAN DYNASTY SERIES<br>STUDY NOTES FOR COMPETITIVE EXAMS
+        </div>
 
     </div>
 
